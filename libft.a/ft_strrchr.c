@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shinowtf <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 23:09:17 by shinowtf          #+#    #+#             */
-/*   Updated: 2023/10/22 23:13:33 by shinowtf         ###   ########.fr       */
+/*   Created: 2023/10/22 23:43:01 by lkah-chu          #+#    #+#             */
+/*   Updated: 2023/10/22 23:43:05 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int n;
 
