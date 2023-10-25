@@ -1,4 +1,4 @@
-24/10- ft_strlcat.c
+25/10 ft_substr
 
-part 1 last to gooo
+finish part 1, LETS GO part 2
  againhung yitest1njdsjdnsjndccdc1# Core

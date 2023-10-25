@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 00:28:10 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/25 20:01:54 by lkah-chu         ###   ########.fr       */
+/*   Created: 2023/10/25 21:49:42 by lkah-chu          #+#    #+#             */
+/*   Updated: 2023/10/25 21:56:37 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*calloc(size_t nmemb, size_t size)
 {
-	size_t i;
-	size_t j;
-	
-	i = 0;
-	j = 0;
-	while (dst[i] != '\0' && i < size)
-		i++;
-	while (src[j] != '\0' && (i + j + 1) < size)
+	size_t	a;
+	size_t	b;
+
+	if (nmemb == 0 || size == 0)
 	{
-		dst[i +j] = src[j];
-		j++;
+		nmemb = 1;
+		size = 1;
 	}
-	if (i < size)
-		dst[i + j] = '\0';
-	return(i + ft_strlen(src));
+	a = (nmemb * size);
+	b = malloc(a);
+	if (b == NULL)
+		return(NULL);
+	else
+		ft_bzero(b, a);
+	return(b);
 }
