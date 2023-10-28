@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 23:33:23 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/28 15:04:37 by lkah-chu         ###   ########.fr       */
+/*   Created: 2023/10/28 15:21:40 by lkah-chu          #+#    #+#             */
+/*   Updated: 2023/10/28 16:24:47 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	char	*ptr_trim;
+	size_t	len;
 
-	i = 0;
-	j = 0;
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-
-	if (str == 0)
-		return(NULL);
-	while (s[i] != '\0')
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	str[j] = '\0';
-	return(str);
+	if(!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1) != '\0')
+		s1++;
+	len = ft_strlen(s1);
+	while (len && ft_strchr(set, s1[len - 1] != '\0')
+		len--;
+	ptr_trim = malloc((len + 1) * sizeof(char));
+	if (ptr_trim != '\0')
+		return (NULL);
+	ptr_trim[len] = '\0';
+	return(ptr_trim);
 }
