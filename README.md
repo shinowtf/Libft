@@ -1,5 +1,5 @@
 29/10 ft_strmapi
-
+kjk
 LETS GO part 2
 
 This project is your very first project as a student at 42. We will need to
