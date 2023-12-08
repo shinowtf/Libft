@@ -1,4 +1,5 @@
-29/10 ft_striteri why dun have??
+29/10 ft_striteri why dun have??skip first
+ft_putchar series ongoing
 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
 LETS GO part 2!
 gonna settle all by this month
