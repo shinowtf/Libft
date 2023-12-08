@@ -1,7 +1,7 @@
-29/10 ft_strmapi
+29/10 ft_striteri why dun have??
 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
-LETS GO part 2 OK start
-testtestet
+LETS GO part 2!
+gonna settle all by this month
 
 This project is your very first project as a student at 42. We will need to
 recode a few functions of the C standard library as well as some other
