@@ -38,7 +38,7 @@ static	char	*ft_strndup(const char *s, size_t n)
 	str = (char *)malloc(sizeof(char) * n + 1);
 	if (str == NULL)
 		return(NULL);
-	str = ft_strncpy(str, s, n);
+	ft_strlcpy(str, s, n);
 	str[n] = '\0';
 	return(str);
 }
@@ -52,12 +52,12 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
+	tab = (char **)malloc(sizeof(char *) * (ft_countwrd(s, c) + 1));
 	if (tab == NULL)
 		return(NULL);
 	while (s[i])
 	{
-		while(s1[i] == c)
+		while(s[i] == c)
 			i++;
 		j = i;
 		while (s[i]  && s[i] != c)

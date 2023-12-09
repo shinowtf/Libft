@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 23:42:24 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/22 23:50:57 by lkah-chu         ###   ########.fr       */
+/*   Created: 2023/10/28 15:21:40 by lkah-chu          #+#    #+#             */
+/*   Updated: 2023/10/28 16:24:47 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
+	char	*ptr_trim;
+	size_t	len;
 
-	i = 0;
-	while (s1[i] == '\0' || s2[i] == '\0')
-	       return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && n > 0)
-	{
-		if (s1[i] > s2[i])
-			return (1);
-		else if (s1[i] < s2[i])
-			return (-1);
-		i++;
-	}
-	return (0);
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1) != 0)
+		s1++;
+	len = ft_strlen(s1);
+	while (len && ft_strchr(set, s1[len - 1]) != 0)
+		len--;
+	ptr_trim = malloc((len + 1) * sizeof(char));
+	if (!ptr_trim)
+		return (NULL);
+	ft_memcpy(ptr_trim, s1, len);
+	ptr_trim[len] = '\0';
+	return (ptr_trim);
 }
-

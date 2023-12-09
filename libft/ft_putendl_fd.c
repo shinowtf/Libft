@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_endl_fd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 00:06:17 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/24 00:10:43 by lkah-chu         ###   ########.fr       */
+/*   Created: 2023/12/08 17:07:17 by lkah-chu          #+#    #+#             */
+/*   Updated: 2023/12/08 17:10:47 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t i;
-	size_t j;
+	char	nl;
 
-	if (!haystack || !needle)
-		return (NULL);
-	if (!needle || needle[0])
-		rerturn ((char *)haystack);
-	while (haystack[i] && i < len) 
-	{
-		j = 0;
-		while (haystack[i + j] && needle[j] && i + j < len && haystack[i + j] == needle[j])
-			j++;
-		if (!needle[j])
-			return ((char *)(haystack + i));
-		i++;
-	}
-	return (NULL);
+	nl = '\n';
+	write(fd, s, ft_strlen(s));
+	write(fd, &nl, 1);
 }

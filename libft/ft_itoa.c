@@ -12,29 +12,68 @@
 
 #include "libft.h"
 
+static void	ft_putnbr(char *dest, unsigned int n)
+{
+	if (n < 10)
+		*dest = n + '0';
+	else
+	{
+		*dest = n % 10 + '0';
+		ft_putnbr(dest - 1, n / 10);
+	}
+}
+
+static size_t	ft_num_len(int n)
+{
+	size_t	c;
+
+	c = 0;
+	while (n)
+	{
+		n /= 10;
+		c++;
+	}
+	return (c);
+}
+
+static size_t	ft_set_len(int n)
+{
+	size_t	len;
+
+	if (n < 0)
+		len = ft_num_len(n) + 1;
+	else
+		len = ft_num_len(n);
+	return (len);
+}
+
+static unsigned int	ft_set_sign(int n, unsigned int num)
+{
+	if (n < 0)
+		return (-num);
+	return (num);
+}
+
 char	*ft_itoa(int n)
 {
-	char	*str;
+	size_t len;
+	unsigned int num;
+	char *pt_itoa;
 
-	str = (char *)malloc(sizeof(char) * 2);
-	if (str == NULL)
-		return(NULL);
-	if (str == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
-	if (n < 0)
+	num = n;
+	if (n == 0)
+		return (ft_strdup("0"));
+	else
 	{
-		str[0] = '-';
-		str[1] = '\0';
-		str = ft_strjoin(str, ft_itoa(-n));
+		len = ft_set_len(n);
+		pt_itoa = malloc(sizeof(char) * (len + 1));
+		if (!pt_itoa)
+			return (NULL);
+		num = ft_set_sign(n, num);
+		ft_putnbr(pt_itoa + len - 1, num);
+		if (n < 0)
+			*pt_itoa = '-';
+		pt_itoa[len] = '\0';
 	}
-	else (n >= 0 && n < 10)
-	{
-		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-	}
-	else if (n >= 10)
-	{
-		str[0] = n + '0';
-		str[1] = '\0';
-	}
-	return(str);
+	return (pt_itoa);
 }

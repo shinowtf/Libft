@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 15:21:40 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/28 16:24:47 by lkah-chu         ###   ########.fr       */
+/*   Created: 2023/10/25 21:49:42 by lkah-chu          #+#    #+#             */
+/*   Updated: 2023/10/25 21:56:37 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	*calloc(size_t nmemb, size_t size)
 {
-	char	*ptr_trim;
-	size_t	len;
+	void	*ptr;
 
-	if(!s1 || !set)
+	ptr = (void *)malloc(nmemb * size);
+	if (!ptr)
 		return (NULL);
-	while (*s1 && ft_strchr(set, *s1) != '\0')
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len - 1] != '\0')
-		len--;
-	ptr_trim = malloc((len + 1) * sizeof(char));
-	if (ptr_trim != '\0')
-		return (NULL);
-	ptr_trim[len] = '\0';
-	return(ptr_trim);
+	ft_bzero(ptr, nmemb);
+	return (ptr);
 }
