@@ -1,4 +1,4 @@
-29/10 ft_striteri why dun have??skip first
+9/12: ft_striteri why dun have??skip first
 ft_putchar series ongoing
 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
 LETS GO part 2!
