@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-void    *ft_bzero(void *ptr, size_t n)
+void	*ft_bzero(void *ptr, size_t n)
 {
-        char *s;
-        int i;
+	char *s;
+	int i;
 
-        i = 0;
-        s = ptr;
-        while (n-- > 0)
-        {
-                s[i] = 0;
-                i++;
-        }
-        return(ptr);
+	i = 0;
+	s = ptr;
+	while (n-- > 0)
+	{
+		s[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

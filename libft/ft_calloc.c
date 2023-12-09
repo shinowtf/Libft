@@ -14,7 +14,7 @@
 
 void	*calloc(size_t nmemb, size_t size)
 {
-	void	*ptr;
+	void *ptr;
 
 	ptr = (void *)malloc(nmemb * size);
 	if (!ptr)

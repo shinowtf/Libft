@@ -12,55 +12,55 @@
 
 #include "libft.h"
 
-static	int	ft_countwrd(char const *s, char c)
+static int	ft_countwrd(char const *s, char c)
 {
-	unsigned int i;
-	int	counter;
+	unsigned int	i;
+	int				counter;
 
 	i = 0;
 	counter = 0;
-	while(s[i])
+	while (s[i])
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
-		if(s[i] != '\0')
+		if (s[i] != '\0')
 			counter++;
-		while(s[i] && (s[i] != c))
+		while (s[i] && (s[i] != c))
 			i++;
 	}
 	return (counter);
 }
 
-static	char	*ft_strndup(const char *s, size_t n)
+static char	*ft_strndup(const char *s, size_t n)
 {
 	char	*str;
 
 	str = (char *)malloc(sizeof(char) * n + 1);
 	if (str == NULL)
-		return(NULL);
+		return (NULL);
 	ft_strlcpy(str, s, n);
 	str[n] = '\0';
-	return(str);
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	k;
-	char	**tab;
+	int i;
+	int j;
+	int k;
+	char **tab;
 
 	i = 0;
 	k = 0;
 	tab = (char **)malloc(sizeof(char *) * (ft_countwrd(s, c) + 1));
 	if (tab == NULL)
-		return(NULL);
+		return (NULL);
 	while (s[i])
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
 		j = i;
-		while (s[i]  && s[i] != c)
+		while (s[i] && s[i] != c)
 			i++;
 		if (i > j)
 		{

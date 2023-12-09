@@ -18,7 +18,7 @@ char	*strchr(const char *s, int c)
 	{
 		if (*s == '\0')
 			return (NULL);
-	       s++;	
+		s++;
 	}
-	return((char *)s);
+	return ((char *)s);
 }

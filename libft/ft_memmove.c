@@ -14,9 +14,11 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	char *pdst = dst;
-	const char *psrc = src;
+	char *pdst;
+	const char *psrc;
 
+	pdst = dst;
+	psrc = src;
 	if (src == NULL && dst == NULL)
 		return (dst);
 	if (dst > src)
@@ -31,9 +33,9 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	else
 	{
 		while (n-- > 0)
-        	{
+		{
 			*(pdst++) = *(psrc++);
-        	}
+		}
 	}
 	return (dst);
 }
