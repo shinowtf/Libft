@@ -6,7 +6,7 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 00:06:17 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/24 00:10:43 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:20:59 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (*needle == '\0')
+		return ((char *)haystack);
 	i = 0;
 	while (i < len && haystack[i] != '\0')
 	{

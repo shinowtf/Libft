@@ -6,7 +6,7 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 23:33:23 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/28 15:04:37 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 15:33:05 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
 	char	*str;
 
-	i = 0;
-	j = 0;
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	if (str == 0)
-		return (NULL);
-	while (s[i] != '\0')
+	if (!s)
 	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
+		return (NULL);
 	}
-	str[j] = '\0';
+	if (start > ft_strlen(s))
+	{
+		return (ft_strdup(""));
+	}
+	if (len > ft_strlen(s) - start)
+	{
+		len = ft_strlen(s) - start;
+	}
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+	{
+		return (NULL);
+	}
+	ft_strlcpy(str, &s[start], len + 1);
 	return (str);
 }

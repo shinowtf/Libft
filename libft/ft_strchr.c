@@ -6,19 +6,18 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 18:48:55 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/20 20:47:43 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 15:34:25 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c)
-	{
-		if (*s == '\0')
-			return (NULL);
-		s++;
-	}
-	return ((char *)s);
+	while (*s)
+		if (*s++ == (char)c)
+			return ((char *)--s);
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }

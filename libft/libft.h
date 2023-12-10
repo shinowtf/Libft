@@ -6,13 +6,14 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:36:58 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/12/10 11:41:27 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 15:28:26 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 

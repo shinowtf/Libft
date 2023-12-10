@@ -6,7 +6,7 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 00:28:10 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/25 20:01:54 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:18:49 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
-	while (dst[i] != '\0' && i < size)
+	while (i < size && dst[i] != '\0')
 		i++;
 	while (src[j] != '\0' && (i + j + 1) < size)
 	{

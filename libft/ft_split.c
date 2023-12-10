@@ -6,68 +6,94 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 15:01:42 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/10/29 16:27:39 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:47:14 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_countwrd(char const *s, char c)
+static size_t	ft_word_count(char const *s, char c)
 {
-	unsigned int	i;
-	int				counter;
+	size_t	count;
 
-	i = 0;
-	counter = 0;
-	while (s[i])
+	count = 0;
+	while (*s == c && *s)
+		s++;
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-			counter++;
-		while (s[i] && (s[i] != c))
-			i++;
+		while (*s != c && *s)
+			s++;
+		while (*s == c && *s)
+			s++;
+		count++;
 	}
-	return (counter);
+	return (count);
+}
+
+static size_t	ft_word_len(char const *s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s != c && *s)
+	{
+		len++;
+		s++;
+	}
+	return (len);
 }
 
 static char	*ft_strndup(const char *s, size_t n)
 {
-	char	*str;
+	char	*pt_strndup;
+	size_t	size;
 
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_strlcpy(str, s, n);
-	str[n] = '\0';
-	return (str);
+	pt_strndup = malloc(sizeof(char) * (n + 1));
+	if (!pt_strndup)
+		return (0);
+	size = 0;
+	while (size < n)
+	{
+		pt_strndup[size] = s[size];
+		size++;
+	}
+	pt_strndup[size] = '\0';
+	return (pt_strndup);
+}
+
+static char	*ft_arr_free(char **s, int i)
+{
+	while (i--)
+		free(s[i]);
+	free(s);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**tab;
+	char	**pt_split;
+	size_t	len;
+	size_t	wordlen;
+	size_t	i;
 
-	i = 0;
-	k = 0;
-	tab = (char **)malloc(sizeof(char *) * (ft_countwrd(s, c) + 1));
-	if (tab == NULL)
+	if (!s)
 		return (NULL);
-	while (s[i])
+	len = ft_word_count(s, c);
+	pt_split = malloc(sizeof (char *) * (len + 1));
+	if (!pt_split)
+		return (NULL);
+	i = 0;
+	while (i < len)
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > j)
-		{
-			tab[k] = ft_strndup(s + j, i - j);
-			k++;
-		}
+		while (*s && *s == c)
+			s++;
+		wordlen = ft_word_len(s, c);
+		pt_split[i] = ft_strndup(s, wordlen);
+		if (!pt_split[i])
+			ft_arr_free(pt_split, i);
+		s += wordlen;
+		i++;
 	}
-	tab[k] = NULL;
-	return (tab);
+	pt_split[len] = NULL;
+	return (pt_split);
 }
