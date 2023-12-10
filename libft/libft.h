@@ -6,7 +6,7 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:36:58 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/12/10 15:28:26 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/10 16:18:02 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 
 int		ft_toupper(int c);
+
+void	ft_striteri(char *s, void(*f)(unsigned int, char *));
 
 #endif
