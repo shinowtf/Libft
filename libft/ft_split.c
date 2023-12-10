@@ -45,10 +45,10 @@ static char	*ft_strndup(const char *s, size_t n)
 
 char	**ft_split(char const *s, char c)
 {
-	int i;
-	int j;
-	int k;
-	char **tab;
+	int		i;
+	int		j;
+	int		k;
+	char	**tab;
 
 	i = 0;
 	k = 0;

@@ -56,9 +56,9 @@ static unsigned int	ft_set_sign(int n, unsigned int num)
 
 char	*ft_itoa(int n)
 {
-	size_t len;
-	unsigned int num;
-	char *pt_itoa;
+	size_t			len;
+	unsigned int	num;
+	char			*pt_itoa;
 
 	num = n;
 	if (n == 0)
