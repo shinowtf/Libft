@@ -6,7 +6,7 @@
 /*   By: lkah-chu <lkah-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:36:58 by lkah-chu          #+#    #+#             */
-/*   Updated: 2023/12/10 16:18:02 by lkah-chu         ###   ########.fr       */
+/*   Updated: 2023/12/15 21:43:07 by lkah-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+/**
+ * @brief Converts a string of digits to an integer, include + and -.
+ * @param str The given string to convert
+ * @return The int value converted
+ **/
 int		ft_atoi(const char *str);
 
 void	*ft_bzero(void *s, size_t n);
@@ -83,6 +87,6 @@ int		ft_tolower(int c);
 
 int		ft_toupper(int c);
 
-void	ft_striteri(char *s, void(*f)(unsigned int, char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 #endif
